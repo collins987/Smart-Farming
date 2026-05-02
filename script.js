@@ -60,13 +60,14 @@ form.addEventListener("submit", async (event) => {
       body: JSON.stringify(payload)
     });
 
-    const result = await response.json();
+    const result = await response.json().catch(() => ({}));
 
     if (response.ok && result.status === "success") {
       showMessage("Submission received. Thank you!", "success");
       form.reset();
     } else {
-      showMessage("Failed to submit. Please try again.", "error");
+      const serverError = Array.isArray(result.errors) ? result.errors[0] : "";
+      showMessage(serverError || result.message || "Failed to submit. Please try again.", "error");
     }
   } catch (error) {
     showMessage("Network error. Please retry in a moment.", "error");
