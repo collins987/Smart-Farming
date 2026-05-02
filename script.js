@@ -62,7 +62,7 @@ form.addEventListener("submit", async (event) => {
 
     const result = await response.json().catch(() => ({}));
 
-    if (response.ok && result.status === "success") {
+    if (response.ok) {
       showMessage("Submission received. Thank you!", "success");
       form.reset();
     } else {
