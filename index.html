@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Farmer Intake</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Weather Monitoring Intake</p>
+          <h1>Smart farmer onboarding, built for the field.</h1>
+          <p class="subhead">
+            Share your details once and receive timely, location-based crop
+            guidance straight to your preferred channel.
+          </p>
+          <div class="hero-card">
+            <div>
+              <h3>What you will receive</h3>
+              <ul>
+                <li>Localized soil and weather insights</li>
+                <li>Crop-specific recommendations</li>
+                <li>Notifications by SMS, Email, Telegram, or WhatsApp</li>
+              </ul>
+            </div>
+            <div class="pill">Takes less than a minute</div>
+          </div>
+        </div>
+        <form class="intake-form" id="intakeForm" novalidate>
+          <h2>Farmer details</h2>
+          <p class="form-note">Fields marked with * are required.</p>
+
+          <label>
+            Name *
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+
+          <label>
+            Phone Number *
+            <input
+              type="tel"
+              name="phoneNumber"
+              required
+              inputmode="tel"
+              placeholder="+254700000000"
+              pattern="^\\+?[0-9]{7,15}$"
+            />
+          </label>
+
+          <label>
+            Email Address *
+            <input type="email" name="emailAddress" required autocomplete="email" />
+          </label>
+
+          <label>
+            Preferred Communication Channel *
+            <select name="preferredChannel" required>
+              <option value="" disabled selected>Select one</option>
+              <option>SMS</option>
+              <option>Email</option>
+              <option>Telegram</option>
+              <option>WhatsApp</option>
+            </select>
+          </label>
+
+          <label>
+            Crop Type *
+            <input type="text" name="cropType" required placeholder="Maize, Beans, Sugarcane" />
+          </label>
+
+          <label>
+            Telegram Chat ID (optional)
+            <input type="text" name="telegramChatId" />
+          </label>
+
+          <label>
+            Location *
+            <input type="text" name="location" required placeholder="Kisumu, Kenya" />
+          </label>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            Submit details
+          </button>
+
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
