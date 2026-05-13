@@ -79,8 +79,29 @@
           </label>
 
           <label>
-            Location *
-            <input type="text" name="location" required placeholder="Kisumu, Kenya" />
+            Town / Village / Ward *
+            <input type="text" name="locality" required placeholder="e.g., Kiharu" />
+          </label>
+
+          <label>
+            County / State / Region *
+            <input type="text" name="administrativeArea" required placeholder="e.g., Murang'a" />
+          </label>
+
+          <label>
+            Country *
+            <input
+              type="text"
+              id="countrySearch"
+              name="countryDisplay"
+              list="countryList"
+              required
+              placeholder="Start typing to search"
+              autocomplete="country-name"
+            />
+            <input type="hidden" id="countryCode" name="countryCode" />
+            <datalist id="countryList"></datalist>
+            <small class="field-helper" id="countryHelper" aria-live="polite"></small>
           </label>
 
           <button type="submit" class="submit-btn" id="submitBtn">
